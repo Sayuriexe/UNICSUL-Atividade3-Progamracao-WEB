@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <form id="calculadora" name="calculadora">
+        <label for="valor1">Valor 1:</label>
+        <input type="number" id="campoValor1" name="valor1" style="background-color: yellow;"><br><br>
+
+        <label for="valor2">Valor 2:</label>
+        <input type="number" id="campoValor2" name="valor2" style="background-color: yellow;"><br><br>
+
+        <label>Opções:</label><br>
+        <input type="radio" id="opcaoSoma" name="operacao" value="soma">
+        <label for="opcaoSoma">SOMA</label><br>
+        <input type="radio" id="opcaoSubtracao" name="operacao" value="subtracao">
+        <label for="opcaoSubtracao">SUBTRAÇÃO</label><br>
+        <input type="radio" id="opcaoMultiplicacao" name="operacao" value="multiplicacao">
+        <label for="opcaoMultiplicacao">MULTIPLICAÇÃO</label><br>
+        <input type="radio" id="opcaoDivisao" name="operacao" value="divisao">
+        <label for="opcaoDivisao">DIVISÃO</label><br><br>
+
+        <label for="resultado">Resultado:</label><br>
+        <input type="text" id="campoResultado" name="resultado" style="background-color: yellow;" readonly><br><br>
+
+        <button type="button" id="botaoCalcular" name="calcular">Calcular</button>
+    </form>
+
+    <script>
+        document.getElementById("botaoCalcular").onclick = function() {
+            const valor1 = parseFloat(document.getElementById("campoValor1").value);
+            const valor2 = parseFloat(document.getElementById("campoValor2").value);
+            const operacao = document.querySelector('input[name="operacao"]:checked');
+
+            let resultado;
+
+            if (operacao) {
+                switch (operacao.value) {
+                    case 'soma':
+                        resultado = valor1 + valor2;
+                        break;
+                    case 'subtracao':
+                        resultado = valor1 - valor2;
+                        break;
+                    case 'multiplicacao':
+                        resultado = valor1 * valor2;
+                        break;
+                    case 'divisao':
+                        resultado = valor1 / valor2;
+                        break;
+                    default:
+                        resultado = "Operação inválida";
+                }
+                document.getElementById("campoResultado").value = resultado;
+            } else {
+                alert("Por favor, selecione uma operação.");
+            }
+        }
+    </script>
+</body>
+</html>

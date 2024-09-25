@@ -1,0 +1,19 @@
+body {
+    font-family: Verdana;
+    font-size: 18pt;
+}
+
+form {
+    border: double 22px red;
+    width: 400px;
+    padding: 30px;
+}
+
+input[type="number"], input[type="text"] {
+    font-size: 18pt;
+    border: 1px solid black;
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+    background-color: yellow;
+}
